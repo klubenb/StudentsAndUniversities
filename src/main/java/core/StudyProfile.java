@@ -1,3 +1,5 @@
+package core;
+
 public enum StudyProfile {
     PEDAGOGY("Педагогика"),
     MEDICINE("Медицина"),
@@ -5,11 +7,12 @@ public enum StudyProfile {
     ECONIMICS("Экономика"),
     JURISPRUDENCE("Юриспруденция"),
     MUSIC("Музыка"),
-    MATH("Математика"),
+    MATHEMATICS("Математика"),
     PHYSICS("Физика"),
     JOURNALISM("Жураналистика"),
     MANAGEMENT("Управленчество"),
     IT("Информационные технологии"),
+    LINGUISTICS("Лингвистика"),
     MULTIDISCIPLINARY("Многопрофильный");
 
     private String profileName;

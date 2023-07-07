@@ -1,3 +1,5 @@
+package core;
+
 import java.util.UUID;
 
 public class University {
@@ -19,15 +21,22 @@ public class University {
         this.mainProfile = mainProfile;
     }
 
-    // todo а насколько корректно делать сеттеры для полей этого класса?
+    public University(String id, String fullName, String shortName, int yearOfFoundation, StudyProfile mainProfile) {
+        this.id = id;
+        this.fullName = fullName;
+        this.shortName = shortName;
+        this.yearOfFoundation = yearOfFoundation;
+        this.mainProfile = mainProfile;
+    }
+
 
     public String getId() {
         return id;
     }
 
-//    public void setId(String id) {
-//        this.id = id;
-//    }
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getFullName() {
         return fullName;
