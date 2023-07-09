@@ -1,5 +1,7 @@
 package core;
 
+import core.enums.StudyProfile;
+
 import java.util.UUID;
 
 public class University {

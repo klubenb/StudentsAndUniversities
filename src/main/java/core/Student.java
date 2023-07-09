@@ -4,21 +4,21 @@ public class Student {
 
     private String fullName;
     private String universityId;
-    private int currentCourseNumber;
+    private int course;
     private float avgExamScore;
 
     public Student() {
         this("Ivan Ivanov", null, 0, 4.5F);
     }
 
-    public Student(String fullName, String universityId, int currentCourseNumber) {
-        this(fullName, universityId, currentCourseNumber, 0);
+    public Student(String fullName, String universityId, int course) {
+        this(fullName, universityId, course, 0);
     }
 
-    public Student(String fullName, String universityId, int currentCourseNumber, float avgExamScore) {
+    public Student(String fullName, String universityId, int course, float avgExamScore) {
         this.fullName = fullName;
         this.universityId = universityId;
-        this.currentCourseNumber = currentCourseNumber;
+        this.course = course;
         this.avgExamScore = avgExamScore;
     }
 
@@ -38,12 +38,12 @@ public class Student {
         this.universityId = universityId;
     }
 
-    public int getCurrentCourseNumber() {
-        return currentCourseNumber;
+    public int getCourse() {
+        return course;
     }
 
-    public void setCurrentCourseNumber(int currentCourseNumber) {
-        this.currentCourseNumber = currentCourseNumber;
+    public void setCourse(int course) {
+        this.course = course;
     }
 
     public float getAvgExamScore() {
@@ -56,6 +56,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return String.format("\nStudent %s is learning in university %s at %d course ad has %f average exam score", fullName, universityId, currentCourseNumber, avgExamScore);
+        return String.format("\nStudent %s is learning in university %s at %d course ad has %f average exam score", fullName, universityId, course, avgExamScore);
     }
 }
