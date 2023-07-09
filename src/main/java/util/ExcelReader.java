@@ -1,8 +1,8 @@
 package util;
 
 import core.Student;
-import core.StudyProfile;
 import core.University;
+import core.enums.StudyProfile;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
