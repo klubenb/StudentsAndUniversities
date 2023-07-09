@@ -1,35 +1,33 @@
 import core.Student;
-import core.StudyProfile;
 import core.University;
+import core.comparators.student.StudentComparator;
+import core.comparators.university.UniversityComparator;
+import core.enums.StudentComparatorType;
+import core.enums.UniversityComparatorType;
 
 import java.io.IOException;
 import java.util.List;
 
+import static util.Comparator.getStudentComparator;
+import static util.Comparator.getUniversityComparator;
 import static util.ExcelReader.readStudentsFromExcel;
 import static util.ExcelReader.readUniversitiesFromExcel;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-//        University university1 = new University();
-//        University university2 = new University("National Research Nuclear io.University Moscow Engineering Physics Institute", "MEPhI", 1942, StudyProfile.PHYSICS);
-//
-//        Student student1 = new Student();
-//        Student student2 = new Student("Petr Lomonosov", university2.getId(), 1, 4.2F);
 
-//        System.out.println(university1);
-//        System.out.println(university2);
-//        System.out.println(student1);
-//        System.out.println(student2);
+        StudentComparator studentComparator = getStudentComparator(StudentComparatorType.FULL_NAME);
+        UniversityComparator universityComparator = getUniversityComparator(UniversityComparatorType.FULL_NAME);
+
 
         List<University> universities = readUniversitiesFromExcel();
         List<Student> students = readStudentsFromExcel();
 
-        for (Student student : students){
-            System.out.println(student);
-        }
-
-        for (University university : universities){
-            System.out.println(university);
-        }
+       students.stream()
+               .sorted(studentComparator)
+               .forEach(System.out::println);
+       universities.stream()
+               .sorted(universityComparator)
+               .forEach(System.out::println);
     }
 }
