@@ -1,33 +1,43 @@
 import core.Student;
 import core.University;
-import core.comparators.student.StudentComparator;
-import core.comparators.university.UniversityComparator;
-import core.enums.StudentComparatorType;
-import core.enums.UniversityComparatorType;
 
 import java.io.IOException;
 import java.util.List;
 
-import static util.Comparator.getStudentComparator;
-import static util.Comparator.getUniversityComparator;
 import static util.ExcelReader.readStudentsFromExcel;
 import static util.ExcelReader.readUniversitiesFromExcel;
+import static util.JsonUtil.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        StudentComparator studentComparator = getStudentComparator(StudentComparatorType.FULL_NAME);
-        UniversityComparator universityComparator = getUniversityComparator(UniversityComparatorType.FULL_NAME);
-
-
         List<University> universities = readUniversitiesFromExcel();
         List<Student> students = readStudentsFromExcel();
 
-       students.stream()
-               .sorted(studentComparator)
-               .forEach(System.out::println);
-       universities.stream()
-               .sorted(universityComparator)
-               .forEach(System.out::println);
+        String universitiesJson = universitiesListToJson(universities);
+        String studetsJson = studentsListToJson(students);
+
+        System.out.println(universitiesJson);
+        System.out.println(studetsJson);
+
+        List<University> deserializedUniversities = jsonToUniversitiesList(universitiesJson);
+        List<Student> deserializedStudents = jsonToStudentsList(studetsJson);
+
+        System.out.println(universities.size() == deserializedUniversities.size());
+        System.out.println(students.size() == deserializedStudents.size());
+
+        students.stream().forEach(student -> {
+            String json = studentToJson(student);
+            System.out.println(json);
+            Student student1 = jsonToStudent(json);
+            System.out.println(student1);
+        });
+
+        universities.stream().forEach(university -> {
+            String json = universityToJson(university);
+            System.out.println(json);
+            University university1 = jsonToUniversity(json);
+            System.out.println(university1);
+        });
     }
 }
