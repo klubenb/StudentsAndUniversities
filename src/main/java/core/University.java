@@ -1,14 +1,20 @@
 package core;
 
+import com.google.gson.annotations.SerializedName;
 import core.enums.StudyProfile;
 
 import java.util.UUID;
 
 public class University {
+    @SerializedName("ID")
     private String id;
+    @SerializedName("Full Name")
     private String fullName;
+    @SerializedName("Short Name")
     private String shortName;
+    @SerializedName("Year of Foundation")
     private int yearOfFoundation;
+    @SerializedName("Study Profile")
     private StudyProfile mainProfile;
 
     public University() {

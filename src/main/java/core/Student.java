@@ -1,10 +1,16 @@
 package core;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Student {
 
+    @SerializedName("Full Name")
     private String fullName;
+    @SerializedName("University ID")
     private String universityId;
+    @SerializedName("Course")
     private int course;
+    @SerializedName("Average Exam Score")
     private float avgExamScore;
 
     public Student() {
