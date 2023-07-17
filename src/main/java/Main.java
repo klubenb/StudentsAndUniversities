@@ -4,9 +4,9 @@ import core.University;
 import java.io.IOException;
 import java.util.List;
 
-import static util.ExcelReader.readStudentsFromExcel;
-import static util.ExcelReader.readUniversitiesFromExcel;
 import static util.JsonUtil.*;
+import static util.XlsReader.readStudentsFromExcel;
+import static util.XlsReader.readUniversitiesFromExcel;
 
 public class Main {
     public static void main(String[] args) throws IOException {
