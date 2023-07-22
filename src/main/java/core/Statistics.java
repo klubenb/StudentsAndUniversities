@@ -1,6 +1,7 @@
 package core;
 
 import core.enums.StudyProfile;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -10,6 +11,10 @@ public class Statistics {
     private int studentsCountByProfile;
     private int universityConutByProfile;
     private List<String> universitiesNames;
+
+    public Statistics(){
+
+    }
 
     public Statistics(StudyProfile studyProfile, double avgExamScore, int studentsCountByProfile, int universityConutByProfile, List<String> universitiesNames) {
         this.studyProfile = studyProfile;
@@ -51,8 +56,8 @@ public class Statistics {
         this.universityConutByProfile = universityConutByProfile;
     }
 
-    public List<String> getUniversitiesNames() {
-        return universitiesNames;
+    public String getUniversitiesNames() {
+        return StringUtils.join(universitiesNames, "; ");
     }
 
     public void setUniversitiesNames(List<String> universitiesNames) {
