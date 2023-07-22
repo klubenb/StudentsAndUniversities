@@ -1,12 +1,16 @@
+import core.Statistics;
 import core.Student;
 import core.University;
 
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.List;
 
 import static util.JsonUtil.*;
+import static util.StatisticsGenerator.generateStatistics;
 import static util.XlsReader.readStudentsFromExcel;
 import static util.XlsReader.readUniversitiesFromExcel;
+import static util.XlsWriter.writeStatisticsToExcel;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -39,5 +43,8 @@ public class Main {
             University university1 = jsonToUniversity(json);
             System.out.println(university1);
         });
+
+        List<Statistics> statisticsList = generateStatistics(readUniversitiesFromExcel(), readStudentsFromExcel());
+        writeStatisticsToExcel(statisticsList, Path.of("src/main/resources/output"));
     }
 }
